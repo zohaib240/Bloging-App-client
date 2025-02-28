@@ -29,7 +29,7 @@ const [loading, setloading] = useState(false)
 
         dispatch(addAllblogs({ response: data })); // ✅ Redux store me sirf user ke blogs save karo
 
-        // console.log(data);
+        console.log(data);
         
       } catch (error) {
         console.error("Error fetching user blogs:", error);

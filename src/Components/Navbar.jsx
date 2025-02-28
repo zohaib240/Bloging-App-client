@@ -48,6 +48,7 @@ const Navbar = () => {
       
       await axios.post(
         "https://bloging-app-server.vercel.app/api/v1/auth/logout",
+        {},
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`, // Pass access token
