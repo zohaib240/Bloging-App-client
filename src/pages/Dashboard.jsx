@@ -15,7 +15,6 @@ const [loading, setloading] = useState(false)
   const dispatch = useDispatch();
   const blogs = useSelector((state) => state.blogs.blogs); // ✅ Redux se blogs lena
   const user = useSelector((state) => state.user.user?.user); // ✅ Redux se user lena
-  console.log(user);
   
 
 // blog fetch ------>>>>>
@@ -23,6 +22,7 @@ const [loading, setloading] = useState(false)
   useEffect(() => {
     if (!user) return; // ✅ Agar user null hai to fetch mat karo
     console.log("Redux user:", user);
+    console.log("Redux Blogs:", blogs);
     const fetchUserBlogs = async () => {
       try {
         const response = await fetch(`https://bloging-app-server.vercel.app/api/v1/singleuserBlogs/${user._id}`);
@@ -31,8 +31,7 @@ const [loading, setloading] = useState(false)
 
         dispatch(addAllblogs({ response: data })); // ✅ Redux store me sirf user ke blogs save karo
 
-        console.log(data);
-        
+        console.log("API Response Data:", data);
       } catch (error) {
         console.error("Error fetching user blogs:", error);
       }
