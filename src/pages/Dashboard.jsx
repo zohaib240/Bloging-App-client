@@ -15,6 +15,8 @@ const [loading, setloading] = useState(false)
   const dispatch = useDispatch();
   const blogs = useSelector((state) => state.blogs.blogs); // ✅ Redux se blogs lena
   const user = useSelector((state) => state.user.user?.user); // ✅ Redux se user lena
+  console.log(user);
+  
 
 // blog fetch ------>>>>>
 
