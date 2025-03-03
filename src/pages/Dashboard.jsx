@@ -23,18 +23,32 @@ const [loading, setloading] = useState(false)
     if (!user) return; // ✅ Agar user null hai to fetch mat karo
     console.log("Redux user:", user);
     console.log("Redux Blogs:", blogs);
+
     const fetchUserBlogs = async () => {
+      // try {
+      //   const response = await fetch(`https://bloging-app-server.vercel.app/api/v1/singleuserBlogs/${user._id}`);
+      //   const data = await response.json();
+      //   console.log(data);
+
+      //   dispatch(addAllblogs({ response: data })); // ✅ Redux store me sirf user ke blogs save karo
+
+      //   console.log("API Response Data:", data);
+      // } catch (error) {
+      //   console.error("Error fetching user blogs:", error);
+      // }
+
       try {
-        const response = await fetch(`https://bloging-app-server.vercel.app/api/v1/singleuserBlogs/${user._id}`);
-        const data = await response.json();
-        console.log(data);
+        const response = await axios.get(
+            `https://bloging-app-server.vercel.app/api/v1/singleuserBlogs/${user._id}`
+        );
 
-        dispatch(addAllblogs({ response: data })); // ✅ Redux store me sirf user ke blogs save karo
+        console.log("API Response Data:", response.data);
+        dispatch(addAllblogs({ response: response.data })); 
 
-        console.log("API Response Data:", data);
-      } catch (error) {
+    } catch (error) {
         console.error("Error fetching user blogs:", error);
-      }
+    }
+
     };
 
     fetchUserBlogs();
