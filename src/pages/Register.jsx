@@ -36,6 +36,8 @@ const Register = () => {
 
       const response = await axios.post('https://bloging-app-server.vercel.app/api/v1/auth/register', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
+        withCredentials: true, // ✅ Important for authentication
+        
       });
       
       Swal.fire({
@@ -47,10 +49,11 @@ const Register = () => {
       });
 
     } catch (error) {
+      console.error("Registration Error:", error.response?.data); // ✅ Debugging Step
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Registration failed. Please try again.',
+        text: 'Registration failed. User already Exist.',
       });
     } finally {
       setLoading(false);
@@ -66,19 +69,19 @@ const Register = () => {
           onSubmit={handleRegister}
         >
           <div className="mb-4">
-            <input type="text" placeholder="Enter your userName" ref={userName} className="input input-bordered w-full" />
+            <input type="text" required placeholder="Enter your userName" ref={userName} className="input input-bordered w-full" />
           </div>
           <div className="mb-4">
             <input type="text" placeholder="Enter your full name" ref={fullName} className="input input-bordered w-full" />
           </div>
           <div className="mb-4">
-            <input type="email" placeholder="Enter your email" ref={email} className="input input-bordered w-full" />
+            <input type="email" required placeholder="Enter your email" ref={email} className="input input-bordered w-full" />
           </div>
           <div className="mb-4">
-            <input type="password" placeholder="Enter your password" ref={password} className="input input-bordered w-full" />
+            <input type="password" required placeholder="Enter your password" ref={password} className="input input-bordered w-full" />
           </div>
           <div className="mb-4">
-            <input type="file" accept="image/*" onChange={handleImageChange} className="file-input file-input-bordered w-full" />
+            <input type="file" required accept="image/*" onChange={handleImageChange} className="file-input file-input-bordered w-full" />
           </div>
           <div className="flex justify-center">
             <button 

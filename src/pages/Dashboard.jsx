@@ -52,7 +52,7 @@ const [loading, setloading] = useState(false)
     };
 
     fetchUserBlogs();
-  }, [dispatch, user]); // ✅ User change hone pe bhi chalega
+  }, [user,dispatch]); // ✅ User change hone pe bhi chalega
 
 
 // blog Add ------>>>>>
