@@ -21,7 +21,6 @@
     "react-hook-form": "^7.53.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.26.2",
-    "redux-persist": "^6.0.0",
     "sweetalert2": "^11.14.4"
   },
   "devDependencies": {

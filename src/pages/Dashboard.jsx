@@ -25,19 +25,7 @@ const [loading, setloading] = useState(false)
     console.log("Redux Blogs:", blogs);
 
     const fetchUserBlogs = async () => {
-      // try {
-      //   const response = await fetch(`https://bloging-app-server.vercel.app/api/v1/singleuserBlogs/${user._id}`);
-      //   const data = await response.json();
-      //   console.log(data);
-
-      //   dispatch(addAllblogs({ response: data })); // ✅ Redux store me sirf user ke blogs save karo
-
-      //   console.log("API Response Data:", data);
-      // } catch (error) {
-      //   console.error("Error fetching user blogs:", error);
-      // }
-
-      try {
+   try {
         const response = await axios.get(
             `https://bloging-app-server.vercel.app/api/v1/singleuserBlogs/${user._id}`
         );
@@ -52,7 +40,7 @@ const [loading, setloading] = useState(false)
     };
 
     fetchUserBlogs();
-  }, [user,dispatch]); // ✅ User change hone pe bhi chalega
+  }, [user,dispatch]); 
 
 
 // blog Add ------>>>>>
