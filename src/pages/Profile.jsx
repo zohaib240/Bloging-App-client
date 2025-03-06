@@ -33,7 +33,7 @@ const Profile = () => {
         />
         <div>
           <h1 className="title-font text-xl font-medium text-gray-900">
-            Name: {userData?.user?.fullName}
+            Name: {userData?.user?.userName} {userData?.user?.fullName} 
           </h1>
           <h1 className="title-font text-xl font-medium text-gray-900">
             Email: {userData?.user?.email}
